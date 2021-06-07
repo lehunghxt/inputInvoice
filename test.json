@@ -1,0 +1,72 @@
+{
+    "DateofInvoice": {
+        "key": "HDon.DLHDon.TTChung.TDLap",
+    },
+    "InvoiceNumber": {
+        "key": "HDon.DLHDon.TTChung.SHDon",
+    },
+    "Symbol": {
+        "key": "HDon.DLHDon.TTChung.KHHDon",
+    },
+    "TemptCode": {
+        "key": "HDon.DLHDon.TTChung.KHMSHDon",
+    },
+    "ExchangeRate": {
+        "key": "HDon.DLHDon.TTChung.TGia",
+    },
+    "MoneyCode": {
+        "key": "HDon.DLHDon.TTChung.DVTTe",
+    },
+    "SellerTaxCode": {
+        "key": "HDon.DLHDon.NDHDon.NBan.MST",
+    },
+    "SellerName": {
+        "key": "HDon.DLHDon.NDHDon.NBan.Ten",
+    },
+    "SellerCompanyAddress": {
+        "key": "HDon.DLHDon.NDHDon.NBan.DChi",
+    },
+    "CompanyName": {
+        "key": "HDon.DLHDon.NDHDon.NMua.Ten",
+    },
+    "CompanyTaxcode": {
+        "key": "HDon.DLHDon.NDHDon.NMua.MST",
+    },
+    "CompanyAdd": {
+        "key": "HDon.DLHDon.NDHDon.NMua.DChi",
+    },
+    "Details": {
+        "key": {
+            "ProductName": {
+                "key": "Ten",
+            },
+            "Unit": {
+                "key": "DVTinh",
+            },
+            "Number": {
+                "key": "SLuong",
+            },
+            "Price": {
+                "key": "DGia",
+            },
+            "TotalMoney": {
+                "key": "ThTien",
+            },
+            "Discount": {
+                "key": "Discount",
+            },
+            "Status": {
+                "key": "Status",
+            },
+            "Tax": {
+                "key": "TSuat",
+            },
+            "NoIndex": {
+                "key": "NoIndex",
+            },
+            "type": {
+                "key": "TChat",
+            }
+        },
+    }
+}
