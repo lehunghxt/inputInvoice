@@ -1,0 +1,152 @@
+{
+    "mainInfo": {
+        "DateofInvoice": [
+            "Invoice.Content.ArisingDate",
+            "invoice.invoiceData.submittedDate.__text",
+            "HDon.DLHDon.TTChung.TDLap",
+            "HDon.DLHDon.TTChung.NLap"
+        ],
+        "InvoiceNumber": [
+            "Invoice.Content.InvoiceNo", 
+            "invoice.invoiceData.invoiceNumber.__text",
+            "HDon.DLHDon.TTChung.SHDon"
+        ],
+        "Symbol": [
+            "Invoice.Content.SerialNo",
+            "invoice.invoiceData.invoiceSeries.__text",
+            "HDon.DLHDon.TTChung.KHHDon"
+        ],
+        "TemptCode": [
+            "Invoice.Content.InvoicePattern",
+            "invoice.invoiceData.templateCode.__text",
+            "HDon.DLHDon.TTChung.KHMSHDon"
+        ],
+        "ExchangeRate": [
+            "Invoice.Content.ExchangeRate",
+            "invoice.invoiceData.exchangeRate.__text",
+            "HDon.DLHDon.TTChung.TGia"
+        ],
+        "MoneyCode": [
+            "Invoice.Content.CurrencyUnit",
+            "invoice.invoiceData.currencyCode.__text",
+            "HDon.DLHDon.TTChung.DVTTe"
+        ],
+        "PaymentTerm": [
+            "Invoice.Content.PaymentMethod",
+            "Invoice.Content.Kind_of_Payment",
+            "invoice.invoiceData.payments.payment.paymentMethodName.__text",
+            "HDon.DLHDon.TTKhac.TTin.DLieu",
+            "HDon.DLHDon.TTChung.HTTToan"
+        ],
+        "SellerCompanyName": [
+            "Invoice.Content.ComName",
+            "invoice.invoiceData.sellerLegalName.__text",
+            "HDon.DLHDon.NDHDon.NBan.Ten"
+        ],
+        "SellerTaxCode": [
+            "Invoice.Content.ComTaxCode",
+            "invoice.invoiceData.sellerTaxCode.__text",
+            "HDon.DLHDon.NDHDon.NBan.MST"
+        ],
+        "SellerCompanyAddress": [
+            "Invoice.Content.ComAddress",
+            "invoice.invoiceData.sellerAddressLine.__text",
+            "HDon.DLHDon.NDHDon.NBan.DChi"
+        ],
+        "CompanyName": [
+            "Invoice.Content.CusName",
+            "invoice.invoiceData.buyerLegalName.__text",
+            "HDon.DLHDon.NDHDon.NMua.Ten"
+        ],
+        "CompanyTaxcode": [
+            "Invoice.Content.CusTaxCode",
+            "invoice.invoiceData.buyerTaxCode.__text",
+            "HDon.DLHDon.NDHDon.NMua.MST"
+        ],
+        "CompanyAdd": [
+            "Invoice.Content.CusAddress",
+            "invoice.invoiceData.buyerAddressLine.__text",
+            "HDon.DLHDon.NDHDon.NMua.DChi"
+        ],
+        "Products": [
+            "Invoice.Content.Products.Product",
+            "invoice.invoiceData.items.item",
+            "HDon.DLHDon.NDHDon.DSHHDVu.HHDVu"
+        ],
+        "TotalMoneyNoTax": [
+            "Invoice.Content.Total",
+            "invoice.invoiceData.totalVATAmount.__text",
+            "HDon.DLHDon.NDHDon.TToan.TgTCThue"
+        ],
+        "Tax": [
+            "Invoice.Content.VATRate",
+            "Invoice.Content.VAT_Rate",
+            "invoice.invoiceData.invoiceTaxBreakdowns.invoiceTaxBreakdown.vatPercentage.__text"
+        ],
+        "MoneyTax": [
+            "Invoice.Content.VATAmount",
+            "Invoice.Content.VAT_Amount",
+            "invoice.invoiceData.invoiceTaxBreakdowns.invoiceTaxBreakdown.vatTaxAmount.__text",
+            "HDon.DLHDon.NDHDon.TToan.TgTThue"
+        ],
+        "TotalMoney": [
+            "Invoice.Content.Amount",
+            "invoice.invoiceData.totalAmountWithVAT.__text",
+            "HDon.DLHDon.NDHDon.TToan.TgTTTBSo"
+        ],
+        "TextTotalMoney": [
+            "Invoice.Content.AmountInWords",
+            "Invoice.Content.Amount_words",
+            "invoice.invoiceData.totalAmountWithVATInWords.__text",
+            "HDon.DLHDon.NDHDon.TToan.TgTTTBChu"
+        ],
+        "SignedDate": [
+            "Invoice.Content.SignDate",
+            "invoice.invoiceData.signedDate.__text",
+            "HDon.DSCKS.NBan.Signature.Object.SignatureProperties.SignatureProperty.date",
+            "HDon.DSCKS.NBan.Signature.Object.SignatureProperties.SignatureProperty.SigningTime"
+        ],
+        "Signature": [
+            "Invoice.Signature.KeyInfo.X509Data.X509Certificate",
+            "HDon.DSCKS.NBan.Signature.KeyInfo.X509Data.X509Certificate"
+        ]
+    },
+    "infoDetail": {
+        "ProductName": [
+            "ProdName",
+            "itemName.__text",
+            "Ten",
+            "THHDVu"
+        ],
+        "Unit": [
+            "ProdUnit",
+            "unitCode.__text",
+            "DVTinh"
+        ],
+        "Number": [
+            "ProdQuantity",
+            "quantity.__text",
+            "SLuong"
+        ],
+        "Price": [
+            "ProdPrice", 
+            "unitPrice.__text",
+            "DGia"
+        ],
+        "TotalMoney": [
+            "Total", 
+            "itemTotalAmountWithoutVat.__text",
+            "ThTien"
+        ],
+        "Tax": [
+            "TSuat"
+        ],
+        "AmountTax": [
+            "VATAmount"
+        ],
+        "TotalMoneyAfterTax": [
+            "Amount", 
+            "THANH_TIEN_SAU_CK.__text"
+        ]
+    }
+}

@@ -8,226 +8,209 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
     <style>
-        *{
+        * {
             font-size: 12px;
         }
-        table {width: 100%; margin-bottom: 8px;}
-        table td {padding: 3px;}
-        .dtl {border-top: solid 1px; border-collapse: separate; border-spacing: 0;}
-        .dtl td {border-right: dotted 1px; border-bottom: dotted 1px;}
-        .dtl td:first-child {border-left: dotted 1px;}
-        .dtl th {border-right: solid 1px; border-bottom: solid 1px;}
-        .dtl th:first-child {border-left: solid 1px;}
-        .dtl tr {page-break-inside: avoid;}
-        .right {text-align: right;}
-        .center {text-align: center;}
-        .vtop {vertical-align: top;}
-        .inc {font-weight: bold; color: blue;}
-        .red {font-weight: bold; color: red;}
+
+        table {
+            width: 100%;
+            margin-bottom: 8px;
+        }
+
+        table td {
+            padding: 3px;
+        }
+
+        .dtl {
+            border-top: solid 1px;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .dtl td {
+            border-right: dotted 1px;
+            border-bottom: dotted 1px;
+        }
+
+        .dtl td:first-child {
+            border-left: dotted 1px;
+        }
+
+        .dtl th {
+            border-right: solid 1px;
+            border-bottom: solid 1px;
+        }
+
+        .dtl th:first-child {
+            border-left: solid 1px;
+        }
+
+        .dtl tr {
+            page-break-inside: avoid;
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .vtop {
+            vertical-align: top;
+        }
+
+        .inc {
+            font-weight: bold;
+            color: blue;
+        }
+
+        .red {
+            font-weight: bold;
+            color: red;
+        }
+
         .itable th {
             background-color: #F39C12;
             color: white;
             padding: 5px;
         }
-        </style>
+    </style>
 </head>
 <body>
-    <input type='file' onchange='openFile(event)'><br>
-    <div class="col-md-12" id="displayInfoInv" style="display: none;">
-        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="center"><strong id="THDon"></strong></td>
-                        <td class="right" style="width: 15%;"><strong>Mẫu số:</strong></td>
-                        <td style="width: 15%;" id="KHMSHDon">01GTKT0/001</td>
-                    </tr>
-                    <tr>
-                        <td class="center"><em>Ngày lập: <span id="NLap"></span></em></td>
-                        <td class="right"><strong>Ký hiệu:</strong></td>
-                        <td id="KHHDon"></td>
-                    </tr>
-                    <tr>
-                        <td class="center"></td>
-                        <td class="right"><strong>Số:</strong></td>
-                        <td style="color: red;" id="SHDon"></td>
-                    </tr>
-                </tbody>
-            </table>
-            <table>
-                <tbody>
-                    <tr>
-                        <td>Đơn vị bán:</td>
-                        <td colspan="5"><strong id="TenNBan"></strong></td>
-                    </tr>
-                    <tr>
-                        <td>Địa chỉ:</td>
-                        <td colspan="5" id="DChiNBan"></td>
-                    </tr>
-                    <tr>
-                        <td><strong>MST:</strong></td>
-                        <td><strong id="MSTNBan"></strong></td>
-                    </tr>
-                    <tr>
-                        <td colspan="6" style="border-bottom: dotted 1px;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="6"></td>
-                    </tr>
-                    <tr>
-                        <td>Đơn vị mua:</td>
-                        <td colspan="5"><strong id="TenNMua"></strong></td>
-                    </tr>
-                    <tr>
-                        <td>Địa chỉ:</td>
-                        <td colspan="5">DChiNMua</td>
-                    </tr>
-                    <tr>
-                        <td><strong>MST:</strong></td>
-                        <td><strong id="MSTNMua"></strong></td>
-                    </tr>
-                    <tr>
-                        <td colspan="6" style="border-bottom: dotted 1px;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="6"></td>
-                    </tr>
-                    <tr>
-                        <td>Hình thức TT:</td>
-                        <td id="HTTToan"></td>
-                        <td>Loại tiền:</td>
-                        <td id="DVTTe"></td>
-                        <td>Tỷ giá:</td>
-                        <td id="TGia"></td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="dtl t3 t6 table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th>STT</th>
-                        <th>Tính chất</th>
-                        <th>Mã HH</th>
-                        <th>Hàng hóa, dịch vụ</th>
-                        <th>ĐVT</th>
-                        <th>TT Khác</th>
-                        <th>TLCK</th>
-                        <th>STCK</th>
-                        <th>Thuế suất</th>
-                        <th>Số lượng</th>
-                        <th>Đơn giá</th>
-                        <th>Thành tiền</th>
-                    </tr>
-                </thead>
-                <tbody id="proDetail">
-                </tbody>
-            </table>
+    <div class="container">
+        <h2 class="page-header">Import hóa đơn đầu vào</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Chọn File XML:</label>
+                    <input type="file" class="form-control" id="fileInvoice" name="fileInvoice"
+                        onchange='openFile(event)' runat="server" />
+                    <input type="hidden" id="invoiceJson" name="invoiceJson" />
+                </div>
+            </div>
         </div>
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <table class="itable table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th colspan="2" class="webix_strong">CHỮ KÝ SỐ &amp; CHỨNG THƯ SỐ</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td width="15%" class="webix_strong">Ký bởi</td>
-                        <td width="85%">MST:0313032391, CN=CÔNG TY CỔ PHẦN CÔNG NGHỆ ASAP - Quí Test, L=Hồ Chí Minh, C=VN</td>
-                    </tr>
-                    <tr>
-                        <td class="webix_strong">Cấp bởi</td>
-                        <td>C=VN, O=Cong ty co phan chu ky so VI NA, OU=Cong ty co phan chu ky so VI NA, CN=SmartSign</td>
-                    </tr>
-                    <tr>
-                        <td class="webix_strong">Thời hạn</td>
-                        <td>18/01/2021 15:19:08 - 18/01/2024 15:19:08</td>
-                    </tr>
-                    <tr>
-                        <td class="webix_strong">Thời gian ký</td>
-                        <td>28/05/2021 15:05:22 </td>
-                    </tr>
-                    <tr>
-                        <td class="webix_strong">Chữ ký số</td>
-                        <td>Đã được xác minh</td>
-                    </tr>
-            
-                    <tr>
-                        <td class="webix_strong">Chứng thư số</td>
-                        <td><span id="cert_status">Chứng thư số hợp lệ</span></td>
-                    </tr>
-                    <tr id="cert_tr" style="display: none;">
-                        <td colspan="2" align="right" style="height: 35; padding: 0px; background-color: white;"><span
-                                id="cert_span">
-                                <div class="webix_view webix_control webix_el_button webix_secondary" view_id="btncheck"
-                                    style="width: 150px; height: 38px;">
-                                    <div class="webix_el_box" style="width:150px; height:38px"><button type="button"
-                                            class="webix_button webix_img_btn" style="line-height:32px;"><span
-                                                class="webix_icon_btn mdi mdi-check-bold" style="max-width:32px;"></span>Kiểm tra
-                                            chứng thư số</button></div>
-                                </div>
-                            </span></td>
-                    </tr>
-                    <tr>
-                        <th colspan="2">NGƯỜI NỘP THUẾ</th>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="webix_strong">ĐƠN VỊ BÁN</td>
-                    </tr>
-                    <tr>
-                        <td class="webix_strong">Mã số thuế</td>
-                        <td>0313032391</td>
-                    </tr>
-                    <tr>
-                        <td class="webix_strong">Tên đơn vị</td>
-                        <td>CÔNG TY CỔ PHẦN CÔNG NGHỆ ASAP</td>
-                    </tr>
-                    <tr>
-                        <td class="webix_strong">Địa chỉ</td>
-                        <td>Số 41A Nguyễn Phi Khanh, Phường Tân Định, Quận 1, TP Hồ Chí Minh</td>
-                    </tr>
-                    <tr>
-                        <td class="webix_strong">Trạng thái hoạt động</td>
-                        <td>NNT đang hoạt động (đã được cấp GCN ĐKT)</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><br></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="webix_strong">ĐƠN VỊ MUA</td>
-                    </tr>
-                    <tr>
-                        <td class="webix_strong">Mã số thuế</td>
-                        <td>0309612872</td>
-                    </tr>
-                    <tr>
-                        <td class="webix_strong">Tên đơn vị</td>
-                        <td>CÔNG TY CỔ PHẦN CHỮ KÝ SỐ VI NA</td>
-                    </tr>
-                    <tr>
-                        <td class="webix_strong">Địa chỉ</td>
-                        <td>Số 41A Nguyễn Phi Khanh, Phường Tân Định, Quận 1, TP Hồ Chí Minh</td>
-                    </tr>
-                    <tr>
-                        <td class="webix_strong">Trạng thái hoạt động</td>
-                        <td>NNT đang hoạt động (đã được cấp GCN ĐKT)</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><br></td>
-                    </tr>
-                    <tr>
-                        <th colspan="2">THÔNG TIN HÓA ĐƠN</th>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="webix_strong"><span class="error">Không tìm thấy thông tin hóa đơn</span></td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="row" id="displayInfoInv" style="display: none;">
+            <div class="col-md-12">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="center"><strong id="THDon"></strong></td>
+                                <td class="right" style="width: 15%;"><strong>Mẫu số:</strong></td>
+                                <td style="width: 15%;" id="TemptCode"></td>
+                            </tr>
+                            <tr>
+                                <td class="center"><em>Ngày lập: <span id="DateofInvoice"></span></em></td>
+                                <td class="right"><strong>Ký hiệu:</strong></td>
+                                <td id="Symbol"></td>
+                            </tr>
+                            <tr>
+                                <td class="center"></td>
+                                <td class="right"><strong>Số:</strong></td>
+                                <td style="color: red;" id="InvoiceNumber"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Đơn vị bán:</td>
+                                <td colspan="5"><strong id="SellerName"></strong></td>
+                            </tr>
+                            <tr>
+                                <td>Địa chỉ:</td>
+                                <td colspan="5" id="SellerCompanyAddress"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>MST:</strong></td>
+                                <td><strong id="SellerTaxCode"></strong></td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" style="border-bottom: dotted 1px;"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="6"></td>
+                            </tr>
+                            <tr>
+                                <td>Đơn vị mua:</td>
+                                <td colspan="5"><strong id="CompanyName"></strong></td>
+                            </tr>
+                            <tr>
+                                <td>Địa chỉ:</td>
+                                <td colspan="5" id="CompanyAdd"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>MST:</strong></td>
+                                <td><strong id="CompanyTaxcode"></strong></td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" style="border-bottom: dotted 1px;"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="6"></td>
+                            </tr>
+                            <tr>
+                                <td>Hình thức thanh toán:</td>
+                                <td id="PaymentTerm"></td>
+                                <td>Loại tiền:</td>
+                                <td id="MoneyCode"></td>
+                                <td>Tỷ giá:</td>
+                                <td id="ExchangeRate"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="dtl t3 t6 table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên hàng hóa dịch vụ</th>
+                                <th>Đơn vị tính</th>
+                                <th>Số lượng</th>
+                                <th>Đơn giá</th>
+                                <th>Thành tiền</th>
+                                <th>Thuế suất</th>
+                                <th>Tiền thuế</th>
+                                <th>Tổng cộng</th>
+                            </tr>
+                        </thead>
+                        <tbody id="proDetail">
+                        </tbody>
+                    </table>
+                    <table class="dtl t3 t6 table table-striped table-hover">
+                        <tbody>
+                            <tr>
+                                <td>Cộng tiền hàng (Total amount):</td>
+                                <td id="TotalMoneyNoTax"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p style="display:inline-block;">Tiền thuế GTGT (VAT amount):</p>
+                                </td>
+                                <td id="MoneyTax"></td>
+                            </tr>
+                            <tr>
+                                <td>Tổng cộng tiền thanh toán (Grand total):</td>
+                                <td id="TotalMoney"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <p>Số tiền viết bằng chữ (Grand total in words): <span id="TextTotalMoney"></span>
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
     <script type='text/javascript' src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
     <script type='text/javascript' src="readXML.js"></script>
+
     <script>
         var openFile = function (event) {
             var input = event.target;
@@ -235,16 +218,19 @@
             reader.onload = function () {
                 var text = reader.result;
                 var data = convertXML2JSON(text);
-                console.log(data);
-                //console.log(data);
-                //var objProcessed = processObject(data, objVNPT);
-                //var objProcessed = processObject(data, objVNPTinv);
-                //var objProcessed = processObject(data, objSmartVas);
-                //var objProcessed = processObject(data, obj19);
-                var objProcessed = processObject(data, obj92);
-                //var mapped = mapToMainObj(mainObj, objProcessed);
-                //console.log(objProcessed);
-                processInvoice(objProcessed);
+                var nhaCungCap = $('#nhaCungCap').val();
+                var objProcessed = '';
+                try {
+                    getData().then(res => {
+                        var objProcessed = processObject(data, res);
+                        console.log(objProcessed);
+                        var handleDetail = processDetail(objProcessed);
+                        processInvoice(handleDetail);
+                        $('#invoiceJson').val(JSON.stringify(handleDetail));
+                    });
+                } catch (error) {
+                    console.log(error.message);
+                }
             };
             reader.readAsText(input.files[0]);
         };
@@ -260,440 +246,219 @@
                 return JSON.stringify(x2js.xml2json(xmlData));
             }
         }
-
-        const mainObj = {
-            infoSeller : {
-                "DateofInvoice":        "TDLap",
-                "InvoiceNumber":        "SHDon",
-                "Symbol":               "KHHDon",
-                "TemptCode":            "KHMSHDon",
-                "ExchangeRate":         "TGia",
-                "MoneyCode":            "DVTTe",
-                "SellerTaxCode":        "MSTNBan",
-                "SellerName":           "TenNBan",
-                "SellerCompanyAddress": "DChiNMua",
-                "CompanyName":          "TenNMua",
-                "CompanyTaxcode":       "MSTNMua",
-                "CompanyAdd":           "DChiNMua",
-            },
-            infoDetail : {
-                "ProductName":  "Ten",
-                "STT":          "STT",
-                "Unit":         "DVTinh",
-                "Number":       "SLuong",
-                "Price":        "DGia",
-                "TotalMoney":   "ThTien",
-                "Discount":     "Discount",
-                "Status":       "Status",
-                "Tax":          "TSuat",
-                "NoIndex":      "NoIndex",
-                "type":         "TChat",
-            }
-        }
-
-        const obj92 = {
-            infoSeller: {
-                "PBan":         "HDon.DLHDon.TTChung.PBan",
-                "THDon":        "HDon.DLHDon.TTChung.THDon",
-                "KHMSHDon":     "HDon.DLHDon.TTChung.KHMSHDon",
-                "KHHDon":       "HDon.DLHDon.TTChung.KHHDon",
-                "SHDon":        "HDon.DLHDon.TTChung.SHDon",
-                "NLap":         "HDon.DLHDon.TTChung.NLap",
-                "DVTTe":        "HDon.DLHDon.TTChung.DVTTe",
-                "TGia":         "HDon.DLHDon.TTChung.TGia",
-                "TTNCC":        "HDon.DLHDon.TTChung.TTNCC",
-                "DDTCuu":       "HDon.DLHDon.TTChung.DDTCuu",
-                "MTCuu":        "HDon.DLHDon.TTChung.MTCuu",
-                "HTTToan":      "HDon.DLHDon.TTChung.HTTToan",
-                "THTTTKhac":    "HDon.DLHDon.TTChung.THTTTKhac",
-
-                "TenNBan":      "HDon.DLHDon.NDHDon.NBan.Ten",
-                "MSTNBan":      "HDon.DLHDon.NDHDon.NBan.MST",
-                "DChiNBan":     "HDon.DLHDon.NDHDon.NBan.DChi",
-
-                "TenNMua":      "HDon.DLHDon.NDHDon.NMua.Ten",
-                "MSTNMua":      "HDon.DLHDon.NDHDon.NMua.MST",
-                "DChiNMua":     "HDon.DLHDon.NDHDon.NMua.DChi",
-
-                "TgTTTBSo":     "HDon.DLHDon.NDHDon.TToan.TgTTTBSo",
-                "TgTTTBChu":    "HDon.DLHDon.NDHDon.TToan.TgTTTBSo",
-
-                "DSHHDVu":      "HDon.DLHDon.NDHDon.DSHHDVu.HHDVu",
-            },
-            infoDetail : {
-                "TChat":        "TChat",
-                "TCDChinh":     "TCDChinh",
-                "STT":          "STT",
-                "THHDVu":       "THHDVu",
-                "DVTinh":       "DVTinh",
-                "SLuong":       "SLuong",
-                "DGia":         "DGia",
-                "TLCKhau":      "TLCKhau",
-                "STCKhau":      "STCKhau",
-                "ThTien":       "ThTien",
-                "TSuat":        "TSuat"
-            }
-        }
-
-        const obj19 = {
-            infoSeller : {
-                "THDon":        "HDon.DLHDon.TTChung.THDon",
-                "KHMSHDon":     "HDon.DLHDon.TTChung.KHMSHDon",
-                "KHHDon":       "HDon.DLHDon.TTChung.KHHDon",
-                "SHDon":        "HDon.DLHDon.TTChung.SHDon",
-                "TDLap":        "HDon.DLHDon.TTChung.TDLap",
-                "TDLHDDChinh":  "HDon.DLHDon.TTChung.TDLHDDChinh",
-                "KHMSHDDChinh": "HDon.DLHDon.TTChung.KHMSHDDChinh",
-                "KHHDBDChinh":  "HDon.DLHDon.TTChung.KHHDBDChinh",
-                "SHDBDChinh":   "HDon.DLHDon.TTChung.SHDBDChinh",
-                "TChat":        "HDon.DLHDon.TTChung.TChat",
-                "DVTTe":        "HDon.DLHDon.TTChung.DVTTe",
-                "TGia":         "HDon.DLHDon.TTChung.TGia",
-
-                "TenNBan":   "HDon.DLHDon.NDHDon.NBan.Ten",
-                "MSTNBan":   "HDon.DLHDon.NDHDon.NBan.MST",
-                "DChiNBan":  "HDon.DLHDon.NDHDon.NBan.DChi",
-
-                "TenNMua":   "HDon.DLHDon.NDHDon.NMua.Ten",
-                "MSTNMua":   "HDon.DLHDon.NDHDon.NMua.MST",
-                "DChiNMua":  "HDon.DLHDon.NDHDon.NMua.DChi",
-
-                "TSuat":     "HDon.DLHDon.NDHDon.TToan.THTTLTSuat.LTSuat.TSuat",
-                "ThTien":    "HDon.DLHDon.NDHDon.TToan.THTTLTSuat.LTSuat.ThTien",
-                "TThue":     "HDon.DLHDon.NDHDon.TToan.THTTLTSuat.LTSuat.TThue",
-
-                "DSLPhi":    "HDon.DLHDon.NDHDon.TToan.DSLPhi",
-                "TgTCThue":  "HDon.DLHDon.NDHDon.TToan.TgTCThue",
-                "TgTThue":   "HDon.DLHDon.NDHDon.TToan.TgTThue",
-                "TTCKTMai":  "HDon.DLHDon.NDHDon.TToan.TTCKTMai",
-                "TgTTTBSo":  "HDon.DLHDon.NDHDon.TToan.TgTTTBSo",
-                "TgTTTBChu": "HDon.DLHDon.NDHDon.TToan.TgTTTBChu",
-
-                "DSHHDVu":   "HDon.DLHDon.NDHDon.DSHHDVu.HHDVu",
-
-            },
-            infoDetail : {
-                "TChat":    "TChat",
-                "STT":      "STT",
-                "Ten":      "Ten",
-                "DVTinh":   "DVTinh",
-                "SLuong":   "SLuong",
-                "DGia":     "DGia",
-                "TLCKhau":  "TLCKhau",
-                "STCKhau":  "STCKhau",
-                "ThTien":   "ThTien",
-                "TSuat":    "TSuat",
-                "TTKhac":   "TTKhac"
-            }
-        }
-
-        const objSmartVas = {
-            infoSeller : {
-                "TChat":     "HDon.DLHDon.TTChung.TChat",
-                "PBan":      "HDon.DLHDon.TTChung.PBan",
-                "THDon":     "HDon.DLHDon.TTChung.THDon",
-                "KHMSHDon":  "HDon.DLHDon.TTChung.KHMSHDon",
-                "KHHDon":    "HDon.DLHDon.TTChung.KHHDon",
-                "SHDon":     "HDon.DLHDon.TTChung.SHDon",
-                "TDLap":     "HDon.DLHDon.TTChung.TDLap",
-                "DVTTe":     "HDon.DLHDon.TTChung.DVTTe",
-                "TGia":      "HDon.DLHDon.TTChung.TGia",
-
-                "TenNBan":   "HDon.DLHDon.NDHDon.NBan.Ten",
-                "MSTNBan":   "HDon.DLHDon.NDHDon.NBan.MST",
-                "DChiNBan":  "HDon.DLHDon.NDHDon.NBan.DChi",
-
-                "TenNMua":   "HDon.DLHDon.NDHDon.NMua.Ten",
-                "MSTNMua":   "HDon.DLHDon.NDHDon.NMua.MST",
-                "DChiNMua":  "HDon.DLHDon.NDHDon.NMua.DChi",
-
-                "TSuat":     "HDon.DLHDon.NDHDon.TToan.THTTLTSuat.LTSuat.TSuat",
-                "ThTien":    "HDon.DLHDon.NDHDon.TToan.THTTLTSuat.LTSuat.ThTien",
-                "TThue":     "HDon.DLHDon.NDHDon.TToan.THTTLTSuat.LTSuat.TThue",
-
-                "DSLPhi":    "HDon.DLHDon.NDHDon.TToan.DSLPhi",
-                "TgTCThue":  "HDon.DLHDon.NDHDon.TToan.TgTCThue",
-                "TgTThue":   "HDon.DLHDon.NDHDon.TToan.TgTThue",
-                "TTCKTMai":  "HDon.DLHDon.NDHDon.TToan.TTCKTMai",
-                "TgTTTBSo":  "HDon.DLHDon.NDHDon.TToan.TgTTTBSo",
-                "TgTTTBChu": "HDon.DLHDon.NDHDon.TToan.TgTTTBChu",
-
-                "DSHHDVu":   "HDon.DLHDon.NDHDon.DSHHDVu.HHDVu",
-            },
-            infoDetail : {
-                "TChat":    "TChat",
-                "STT":      "STT",
-                "Ten":      "Ten",
-                "DVTinh":   "DVTinh",
-                "SLuong":   "SLuong",
-                "DGia":     "DGia",
-                "TLCKhau":  "TLCKhau",
-                "STCKhau":  "STCKhau",
-                "ThTien":   "ThTien",
-                "TSuat":    "TSuat",
-                "TTKhac":   "TTKhac"
-            }
-        }
-
-        const objVNPT = {
-            infoSeller : {
-                Key:                  "Invoice.Content.Key",
-                ArisingDate:          "Invoice.Content.ArisingDate",
-                ComFax:               "Invoice.Content.ComFax",
-                ComName:              "Invoice.Content.ComName",
-                ComTaxCode:           "Invoice.Content.ComTaxCode",
-                ComAddress:           "Invoice.Content.ComAddress",
-                ComPhone:             "Invoice.Content.ComPhone",
-                ComEmail:             "Invoice.Content.ComEmail",
-                ComBankNo:            "Invoice.Content.ComBankNo",
-                ComBankName:          "Invoice.Content.ComBankName",
-                Ikey:                 "Invoice.Content.Ikey",
-                ParentName:           "Invoice.Content.ParentName",
-                InvoiceName:          "Invoice.Content.InvoiceName",
-                InvoicePattern:       "Invoice.Content.InvoicePattern",
-                SerialNo:             "Invoice.Content.SerialNo",
-                nvoiceNo:            "Invoice.Content.InvoiceNo",
-                PaymentMethod:        "Invoice.Content.PaymentMethod",
-                CusCode:              "Invoice.Content.CusCode",
-                CusName:              "Invoice.Content.CusName",
-                CusTaxCode:           "Invoice.Content.CusTaxCode",
-                CusPhone:             "Invoice.Content.CusPhone",
-                CusAddress:           "Invoice.Content.CusAddress",
-                CusBankName:          "Invoice.Content.CusBankName",
-                CusBankNo:            "Invoice.Content.CusBankNo",
-                Total:                "Invoice.Content.Total",
-                VATAmount:            "Invoice.Content.VATAmount",
-                Amount:               "Invoice.Content.Amount",
-                AmountInWords:        "Invoice.Content.AmountInWords",
-                Buyer:                "Invoice.Content.Buyer",
-                VATRate:              "Invoice.Content.VATRate",
-                Note:                 "Invoice.Content.Note",
-                CusEmails:            "Invoice.Content.CusEmails",
-                Extra:                "Invoice.Content.Extra",
-                GrossValue:           "Invoice.Content.GrossValue",
-                GrossValue0:          "Invoice.Content.GrossValue0",
-                VatAmount0:           "Invoice.Content.VatAmount0",
-                GrossValue5:          "Invoice.Content.GrossValue5",
-                VatAmount5:           "Invoice.Content.VatAmount5",
-                GrossValue10:         "Invoice.Content.GrossValue10",
-                VatAmount10:          "Invoice.Content.VatAmount10",
-                GrossValueNDeclared:  "Invoice.Content.GrossValueNDeclared",
-                VatAmountNDeclared:   "Invoice.Content.VatAmountNDeclared",
-                GrossValueContractor: "Invoice.Content.GrossValueContractor",
-                VatAmountContractor:  "Invoice.Content.VatAmountContractor",
-                ExchangeRate:         "Invoice.Content.ExchangeRate",
-                CurrencyUnit:         "Invoice.Content.CurrencyUnit",
-                PortalLink:           "Invoice.Content.PortalLink",
-                Hidden:               "Invoice.Content.Hidden",
-                SignDate:             "Invoice.Content.SignDate",
-                _Id:                  "Invoice.Content._Id",
-                Products :            "Invoice.Content.Products.Product",
-            },
-            infoDetail : {
-                Amount: "Amount",
-                Code: "Code",
-                Extra: "Extra",
-                IsDiscountRow: "IsDiscountRow",
-                ProdName: "ProdName",
-                ProdPrice: "ProdPrice",
-                ProdQuantity: "ProdQuantity",
-                ProdType: "ProdType",
-                ProdUnit: "ProdUnit",
-                Total: "Total",
-            }
-        };
-
-        const objVNPTinv = {
-            infoSeller : {
-                "ArisingDate":"Invoice.Content.ArisingDate",
-                "InvoiceName":"Invoice.Content.InvoiceName",
-                "InvoicePattern":"Invoice.Content.InvoicePattern",
-                "SerialNo":"Invoice.Content.SerialNo",
-                "InvoiceNo":"Invoice.Content.InvoiceNo",
-                "Kind_of_Payment":"Invoice.Content.Kind_of_Payment",
-                "ComName":"Invoice.Content.ComName",
-                "ComTaxCode":"Invoice.Content.ComTaxCode",
-                "ComAddress":"Invoice.Content.ComAddress",
-                "ComPhone":"Invoice.Content.ComPhone",
-                "ComBankNo":"Invoice.Content.ComBankNo",
-                "ComBankName":"Invoice.Content.ComBankName",
-                "CusCode":"Invoice.Content.CusCode",
-                "CusName":"Invoice.Content.CusName",
-                "CusTaxCode":"Invoice.Content.CusTaxCode",
-                "CusPhone":"Invoice.Content.CusPhone",
-                "CusAddress":"Invoice.Content.CusAddress",
-                "CusBankName":"Invoice.Content.CusBankName",
-                "CusBankNo":"Invoice.Content.CusBankNo",
-                "Total":"Invoice.Content.Total",
-                "VAT_Amount":"Invoice.Content.VAT_Amount",
-                "Amount":"Invoice.Content.Amount",
-                "Amount_words":"Invoice.Content.Amount_words",
-                "GrossValueNonTax":"Invoice.Content.GrossValueNonTax",
-                "GrossValue":"Invoice.Content.GrossValue",
-                "Buyer":"Invoice.Content.Buyer",
-                "GrossValue0":"Invoice.Content.GrossValue0",
-                "VATAmount0":"Invoice.Content.VATAmount0",
-                "GrossValue5":"Invoice.Content.GrossValue5",
-                "VATAmount5":"Invoice.Content.VATAmount5",
-                "GrossValue10":"Invoice.Content.GrossValue10",
-                "VATAmount10":"Invoice.Content.VATAmount10",
-                "CurrencyUnit":"Invoice.Content.CurrencyUnit",
-                "ExchangeRate":"Invoice.Content.ExchangeRate",
-                "ConvertedAmount":"Invoice.Content.ConvertedAmount",
-                "Extra1":"Invoice.Content.Extra1",
-                "Extra2":"Invoice.Content.Extra2",
-                "EmailDeliver":"Invoice.Content.EmailDeliver",
-                "SMSDeliver":"Invoice.Content.SMSDeliver",
-                "VAT_Rate":"Invoice.Content.VAT_Rate",
-                "KindOfService":"Invoice.Content.KindOfService",
-                "Products":"Invoice.Content.Products.Product",
-                "Extra":"Invoice.Content.Extra",
-                "SignDate":"Invoice.Content.SignDate",
-                "_Id":"Invoice.Content._Id",
-            },
-            infoDetail: {
-                "Code":"Code",
-                "Extra1":"Extra1",
-                "Extra2":"Extra2",
-                "Remark":"Remark",
-                "Total":"Total",
-                "ProdName":"ProdName",
-                "ProdUnit":"ProdUnit",
-                "ProdQuantity":"ProdQuantity",
-                "ProdPrice":"ProdPrice",
-                "Discount":"Discount",
-                "DiscountAmount":"DiscountAmount",
-                "VATRate":"VATRate",
-                "VATAmount":"VATAmount",
-                "Amount":"Amount"
-            }
-        }
-
         function processObject(data, pathJson) {
-            var infoSeller = pathJson.infoSeller;
+            var mainInfo = pathJson.mainInfo;
             var infoDetail = pathJson.infoDetail;
             var dataInv = JSON.parse(data);
-            var commonInfo = {};
-            var details = [];
-            for (let [key, value] of Object.entries(infoSeller)) {
-                var level = value;
-                level = level.split(".");
-                var currentObjState = dataInv;
-                for (var i = 0; i < level.length; i++) {
-                    currentObjState = currentObjState[level[i]];
-                }
-                if (typeof currentObjState == "string") {
-                    commonInfo[`${key}`] = currentObjState;
-                }
-                if (typeof currentObjState == "object") {
-                    if (currentObjState.length > 0) {
-                        var tmpArr = [];
-                        currentObjState.forEach(element => {
-                            var tmpDetail = {};
+            var obj = {};
+            var Details = [];
+            for (let [key, value] of Object.entries(mainInfo)) {
+                value.forEach(element => {
+                    var level = element;
+                    level = level.split(".");
+                    var currentObjState = dataInv;
+                    for (var i = 0; i < level.length; i++) {
+                        if (currentObjState[level[i]]) {
+                            currentObjState = currentObjState[level[i]];
+                        }
+                    }
+                    if (typeof currentObjState == "string") {
+                        obj[`${key}`] = currentObjState;
+                    }
+                    if (typeof currentObjState == "object") {
+                        if (currentObjState.length > 0) {
+                            currentObjState.forEach(element2 => {
+                                var objDetail = {};
+                                for (let [key, value] of Object.entries(infoDetail)) {
+                                    value.forEach(element => {
+                                        var val = element.split(".");
+                                        if (val.length == 2) {
+                                            if (element2[val[0]] != undefined) {
+                                                if (element2[val[0]][val[1]] != undefined) {
+                                                    objDetail[`${key}`] = element2[val[0]][val[1]];
+                                                }
+                                            }
+                                        }
+                                        if (val.length == 1) {
+                                            if (element2[val] != undefined) {
+                                                objDetail[`${key}`] = element2[val];
+                                            }
+                                        }
+                                    });
+                                }
+                                if (!$.isEmptyObject(objDetail)) {
+                                    objDetail.Tax = objDetail.Tax ? parseInt(objDetail.Tax.split('%')[0]) : 0;
+                                    Details.push(objDetail);
+                                }
+                            });
+                        } else {
+                            var objDetails2 = {};
                             for (let [key, value] of Object.entries(infoDetail)) {
-                                tmpDetail[`${key}`] = element[value];
+                                value.forEach(element => {
+                                    var val = element.split(".");
+                                    if (val.length == 2) {
+                                        if (currentObjState[val[0]] != undefined) {
+                                            if (currentObjState[val[0]][val[1]] != undefined) {
+                                                objDetails2[`${key}`] = currentObjState[val[0]][val[1]];
+                                                return;
+                                            }
+                                        }
+                                    }
+                                    if (val.length == 1) {
+                                        if (currentObjState[val] != undefined) {
+                                            objDetails2[`${key}`] = currentObjState[val];
+                                            return;
+                                        }
+                                    }
+                                });
                             }
-                            details.push(tmpDetail);
-                        });
-                    } else {
-                        var detail2 = {};
-                        for (let [key, value] of Object.entries(infoDetail)) {
-                            detail2[`${key}`] = currentObjState[value];
+                            if (!$.isEmptyObject(objDetails2)) {
+                                if (objDetails2.ProductName || objDetails2.Unit) {
+                                    objDetails2.Tax = objDetails2.Tax ? parseInt(objDetails2.Tax.split('%')[0]) : 0;
+                                    Details.push(objDetails2);
+                                }
+                            }
                         }
-                        details.push(detail2);
                     }
-                }
+                });
             }
-            var returnObj = {};
-            returnObj.infoSeller = commonInfo;
-            returnObj.infoDetail = details;
-            return returnObj;
+            obj.Details = Details;
+            return obj;
         }
+        function InvoiceType(code) {
+            return code.includes("01GTKT") ? "Hóa đơn giá trị gia tăng" : code.includes("02GTTT") ? "Hóa đơn bán hàng" : code.includes("03XKNB") ? "Phiếu xuất kho kiêm vận chuyển nội bộ" : "Hóa đơn khác"
+        }
+        function FormatMoney(amount, kytuNgan, kytuThapPhan) {
+            if (!amount) return '';
+            var num_parts = amount.toString().split(".");
+            num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, kytuNgan || ",");
+            if (num_parts.length > 1) return num_parts.join(kytuThapPhan || ".");
+            return num_parts[0];
+        }
+        function handleMoney(money, roundNum = 2) {
+            return parseFloat(money).toFixed(roundNum);
+        }
+        function processDetail(obj) {
+            obj.DateofInvoice = obj.DateofInvoice ? obj.DateofInvoice : '';
+            obj.InvoiceNumber = obj.InvoiceNumber ? obj.InvoiceNumber : '';
+            obj.Symbol = obj.Symbol ? obj.Symbol : '';
+            obj.TemptCode = obj.TemptCode ? obj.TemptCode : '';
+            obj.ExchangeRate = obj.ExchangeRate ? obj.ExchangeRate : '';
+            obj.MoneyCode = obj.MoneyCode ? obj.MoneyCode : '';
+            obj.PaymentTerm = obj.PaymentTerm ? obj.PaymentTerm : '';
+            obj.SellerCompanyName = obj.SellerCompanyName ? obj.SellerCompanyName : '';
+            obj.SellerTaxCode = obj.SellerTaxCode ? obj.SellerTaxCode : '';
+            obj.SellerCompanyAddress = obj.SellerCompanyAddress ? obj.SellerCompanyAddress : '';
+            obj.CompanyName = obj.CompanyName ? obj.CompanyName : '';
+            obj.CompanyTaxcode = obj.CompanyTaxcode ? obj.CompanyTaxcode : '';
+            obj.CompanyAdd = obj.CompanyAdd ? obj.CompanyAdd : '';
+            obj.TotalMoneyNoTax = obj.TotalMoneyNoTax ? handleMoney(obj.TotalMoneyNoTax) : 0;
+            obj.Tax = obj.Tax ? obj.Tax : '';
+            obj.MoneyTax = obj.MoneyTax ? handleMoney(obj.MoneyTax) : 0;
+            obj.TotalMoney = obj.TotalMoney ? handleMoney(obj.TotalMoney) : 0;
+            obj.TextTotalMoney = obj.TextTotalMoney ? obj.TextTotalMoney : '';
 
-        function mapToMainObj(mainObj, obj){
-            var mainInfoSeller = mainObj.infoSeller;
-            var tmpSeller = obj.infoSeller;
-            var mainInfoDetail = mainObj.infoDetail;
-            var tmpInfoDetail = obj.infoDetail;
-            var mappedInfoSeller = {};
-            var mappedInfoDetail = [];
-            for (let [key1, value1] of Object.entries(mainInfoSeller)) {
-                for (let [key2, value2] of Object.entries(tmpSeller)) {
-                    if(value1 == key2){
-                        mappedInfoSeller[`${key2}`] = value2;
-                    }
+            obj.Details.forEach(item => {
+                item.ProductName = item.ProductName ? item.ProductName : '';
+                item.Unit = item.Unit ? item.Unit : '';
+                item.Number = item.Number ? parseFloat(item.Number) : 0;
+                item.Price = item.Price ? handleMoney(item.Price) : 0;
+                item.TotalMoney = item.TotalMoney ? handleMoney(item.TotalMoney) : 0;
+                item.Tax = item.Tax ? item.Tax : 0;
+                item.AmountTax = item.AmountTax ? handleMoney(item.AmountTax) : 0;
+                item.TotalMoneyAfterTax = item.TotalMoneyAfterTax ? handleMoney(item.TotalMoneyAfterTax) : 0;
+                if (item.TotalMoney == 0 && item.Number > 0 && item.Price > 0) {
+                    item.TotalMoney = handleMoney(parseFloat(item.Number) * parseFloat(item.Price));
                 }
-            }
-            if(tmpInfoDetail.length > 0){
-                tmpInfoDetail.forEach(element => {
-                    var tmpDetail = {};
-                    for (let [key1, value1] of Object.entries(mainInfoDetail)) {
-                        for (let [key2, value2] of Object.entries(element)) {
-                            if(value1 == key2){
-                                tmpDetail[`${key2}`] = value2;
-                            }
-                        }
-                    }
-                    mappedInfoDetail.push(tmpDetail);
-                })
-            }else{
-                var tmpDetail = {};
-                for (let [key1, value1] of Object.entries(mainInfoDetail)) {
-                    for (let [key2, value2] of Object.entries(tmpInfoDetail)) {
-                        if(value1 == key2){
-                            tmpDetail[`${key2}`] = value2;
-                        }
-                    }
+                if (item.TotalMoney > 0 && item.AmountTax == 0) {
+                    item.AmountTax = handleMoney(parseFloat(item.TotalMoney) * parseFloat(item.Tax) / 100.0);
                 }
-                mappedInfoDetail.push(tmpDetail);
-            }
-            mappedInfoSeller.Details = mappedInfoDetail;
-            return mappedInfoSeller;
+                if (item.TotalMoney > 0 && item.AmountTax > 0) {
+                    item.TotalMoneyAfterTax = handleMoney(parseFloat(item.TotalMoney) + parseFloat(item.AmountTax));
+                }
+                if (obj.Tax != '') {
+                    item.Tax = obj.Tax;
+                }
+            });
+            return obj;
         }
-        
-        function processInvoice(obj){
-            var commonInfo = obj.infoSeller;
-            var detailInfo = obj.infoDetail;
+        function processInvoice(obj) {
             var rootDiv = $('#displayInfoInv');
-            rootDiv.find('#THDon').text(commonInfo.THDon);
-            rootDiv.find('#KHMSHDon').text(commonInfo.KHMSHDon);
-            rootDiv.find('#KHHDon').text(commonInfo.KHHDon);
-            rootDiv.find('#SHDon').text(commonInfo.SHDon);
-            rootDiv.find('#NLap').text(commonInfo.NLap);
+            rootDiv.find('#THDon').text(InvoiceType(obj.TemptCode));
+            rootDiv.find('#TemptCode').text(obj.TemptCode);
+            rootDiv.find('#Symbol').text(obj.Symbol);
+            rootDiv.find('#InvoiceNumber').text(obj.InvoiceNumber);
+            rootDiv.find('#DateofInvoice').text(obj.DateofInvoice);
 
-            rootDiv.find('#TenNBan').text(commonInfo.TenNBan);
-            rootDiv.find('#MSTNBan').text(commonInfo.MSTNBan);
-            rootDiv.find('#DChiNBan').text(commonInfo.DChiNBan);
+            rootDiv.find('#SellerCompanyName').text(obj.SellerCompanyName);
+            rootDiv.find('#SellerTaxCode').text(obj.SellerTaxCode);
+            rootDiv.find('#SellerCompanyAddress').text(obj.SellerCompanyAddress);
 
-            rootDiv.find('#TenNMua').text(commonInfo.TenNMua);
-            rootDiv.find('#MSTNMua').text(commonInfo.MSTNMua);
-            rootDiv.find('#DChiNMua').text(commonInfo.DChiNMua);
+            rootDiv.find('#idSignedName').text(obj.SellerCompanyName);
+            rootDiv.find('#idSignedTaxCode').text(obj.SellerTaxCode);
+            rootDiv.find('#idSignedDate').text(obj.SignedDate);
 
-            rootDiv.find('#HTTToan').text(commonInfo.HTTToan);
-            rootDiv.find('#DVTTe').text(commonInfo.DVTTe);
-            rootDiv.find('#TGia').text(commonInfo.TGia);
+
+            rootDiv.find('#CompanyName').text(obj.CompanyName);
+            rootDiv.find('#CompanyTaxcode').text(obj.CompanyTaxcode);
+            rootDiv.find('#CompanyAdd').text(obj.CompanyAdd);
+
+            rootDiv.find('#ExchangeRate').text(obj.ExchangeRate);
+            rootDiv.find('#MoneyCode').text(obj.MoneyCode);
+            rootDiv.find('#PaymentTerm').text(obj.PaymentTerm);
+
+            rootDiv.find('#TotalMoneyNoTax').text(FormatMoney(handleMoney(obj.TotalMoneyNoTax)));
+            rootDiv.find('#Tax').text(handleDisplayTax(obj.Tax));
+            rootDiv.find('#MoneyTax').text(FormatMoney(handleMoney(obj.MoneyTax)));
+            rootDiv.find('#TotalMoney').text(FormatMoney(handleMoney(obj.TotalMoney)));
+            rootDiv.find('#TextTotalMoney').text(obj.TextTotalMoney);
 
             var htmlDetail = '';
             var stt = 1;
-            detailInfo.forEach((el) => {
+            obj.Details.forEach((el) => {
                 htmlDetail += `<tr>
-                            <td class="center">${stt}</td>
-                            <td>${el.TChat}</td>
-                            <td></td>
-                            <td>${el.THHDVu}</td>
-                            <td>${el.DVTinh}</td>
-                            <td></td>
-                            <td class="right">${el.TLCKhau}</td>
-                            <td class="right">${el.STCKhau}</td>
-                            <td class="right">${el.TSuat}</td>
-                            <td class="right">${el.SLuong == undefined ? '' : el.SLuong }</td>
-                            <td class="right">${el.DGia}</td>
-                            <td class="right">${el.ThTien}</td>
+                        <td class="tdCenter">${stt}</td>
+                        <td class="tdLeft">${el.ProductName}</td>
+                        <td class="tdCenter">${el.Unit}</td>
+                        <td class="tdRight">${FormatMoney(handleMoney(el.Number))}</td>
+                        <td class="tdRight">${FormatMoney(handleMoney(el.Price))}</td>
+                        <td class="tdRight">${FormatMoney(handleMoney(el.TotalMoney))}</td>
+                        <td class="tdCenter">${handleDisplayTax(el.Tax)}</td>
+                        <td class="tdRight">${FormatMoney(handleMoney(el.AmountTax))}</td>
+                        <td class="tdRight">${FormatMoney(handleMoney(el.TotalMoneyAfterTax))}</td>
                         </tr>`;
-                        stt++;
+                stt++;
             });
             rootDiv.find('#proDetail').html(htmlDetail);
             rootDiv.css('display', 'block');
+        }
+
+        function handleDisplayTax(tax) {
+            var strRes = '';
+            if (tax == -1 || tax == 'KCT') {
+                strRes = 'KCT';
+            } else if (tax == 0) {
+                strRes = '0%';
+            } else if (tax == 5) {
+                strRes = '5%';
+            } else if (tax == 10) {
+                strRes = '10%';
+            }
+            return strRes;
+        }
+        function ajaxGetData(url) {
+            return  $.ajax({
+                url: url,
+                dataType: 'json',
+            });
+        }
+        async function getData() {
+            try {
+                const res = await ajaxGetData('modal.json')
+                return res;
+            } catch(err) {
+                console.log(err);
+            }
         }
     </script>
 </body>
